@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baank</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body>
+    <header>
+        <h1 class="text-6xl text-center mt-6">Lets get some <span class="font-black text-purple-800 ">Moneyyy</span> </h1>
+    
+    </header>
+    
+
+
+<main>
+
+    <section>
+<div class="grid grid-cols-3 gap-4 mt-12 w-9/12 mx-auto text-white">
+
+    <div  class="bg-green-400   rounded-xl  p-6"><h4 class="text-2xl">Deposit</h4>
+    <h5 class="text-4xl"><span id="Deposit-new">00</span>$</h5></div>
+    <div class="bg-yellow-400  rounded-xl  p-6"><h4 class="text-2xl">Withdraw</h4>
+    <h5 class="text-4xl"><span id="withdraw-total">00</span>$</h5></div>
+    <div class="bg-violet-400   rounded-xl  p-6"><h4 class="text-2xl">Balance</h4>
+    <h5 class="text-4xl"> <span id="balance-Total">1200</span> $</h5></div>
+
+  
+
+
+
+</div>
+
+
+    </section>
+    <section>
+
+        <div class="grid grid-cols-2  gap-4 w-7/12 mt-12 mx-auto text-white">
+
+            <div class="bg-indigo-400   rounded-xl  p-8"><h4 class="text-2xl">Deposit</h4>
+            
+            <input class="mb-3 w-9/12 p-3 mt-3 text-black" type="text" name="" id="deposit-id" placeholder="$ Enter The amount U want to deposit"> <br>
+            
+            
+            <button id="btnDeposit-id" class="bg-indigo-600 mt-4 p-2 rounded-md hover:bg-red-300">
+              Deposit
+            </button>
+        </div>
+
+
+
+
+            <div class="bg-rose-400   rounded-xl  p-8"><h4 class="text-2xl">Withdraw</h4>
+           
+            <input class="mb-3 w-9/12 p-3 mt-3 text-black" type="text" name="" id="withdraw-id" placeholder="$ Enter The amount U want to deposit"> <br>
+            
+            
+            <button id="btnwithdraw-id" class="bg-indigo-600 mt-4 p-2 rounded-md hover:bg-red-300">
+              Withdraw
+            </button>
+        </div>
+          
+          
+        
+        
+        
+        </div>
+        
+    </section>
+</main>
+
+
+<script>
+
+    document.getElementById('btnDeposit-id').addEventListener('click',function () {
+
+       
+
+        const depositField = document.getElementById('deposit-id');
+
+        const depositAmountString =depositField.value;
+        const depositAmount = parseFloat(depositAmountString);
+
+        const depositTotal = document.getElementById('Deposit-new');
+
+        const finalAmountString = depositTotal.innerText;
+        const finalAmount = parseFloat(finalAmountString);
+
+        const currentTotal = finalAmount + depositAmount;
+
+       depositTotal.innerText = currentTotal;
+
+const totalBalance = document.getElementById('balance-Total');
+
+const currentBalance = parseFloat (totalBalance.innerText);
+
+const currentTotalBalance = currentBalance + depositAmount;
+
+totalBalance.innerText = currentTotalBalance;
+
+
+
+
+    //    last khela
+
+depositField.value = '';
+        
+    })
+</script>
+<script>
+
+// withdraw js
+document.getElementById('btnwithdraw-id').addEventListener('click',function () {
+    const withdrawField = document.getElementById ('withdraw-id');
+
+    const newAmountWithdrawString = withdrawField.value;
+
+    const newAmount = parseFloat (newAmountWithdrawString);
+
+   const withdrawTotalElement = document.getElementById('withdraw-total');
+
+   const lastWithdrawTotalElementString = withdrawTotalElement.innerText;
+
+   const lastWithdrawTotal =  parseFloat (lastWithdrawTotalElementString);
+
+   const currentWithdrawTotal = newAmount + lastWithdrawTotal;
+
+   withdrawTotalElement.innerText = currentWithdrawTotal;
+
+
+const balanceTotalElement = document.getElementById('balance-Total');
+
+const previousBalanceTotalString = balanceTotalElement.innerText;
+
+const totalBalance = parseFloat (previousBalanceTotalString);
+
+const newTotalBalance = totalBalance - newAmount;
+
+balanceTotalElement.innerText = newTotalBalance; 
+
+
+
+
+
+
+
+
+
+
+   withdrawField.value = '';
+})
+
+
+
+
+</script>
+
+    <script src="deposit.js"></script>
+</body>
+</html>
